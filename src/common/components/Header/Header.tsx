@@ -3,13 +3,13 @@ import { useNavigate } from "react-router-dom";
 export default function Header() {
   const navigate = useNavigate();
   return (
-    <header className="p-4 dark:bg-gray-100 dark:text-gray-800">
+    <header className="p-4 dark:bg-gray-100 dark:text-gray-800 sticky top-0 z-10">
       <div className="container flex justify-between h-10 mx-auto">
         <a
           rel="noopener noreferrer"
-          href="#"
+          onClick={() => navigate("/")}
           aria-label="Back to homepage"
-          className="flex items-center p-2"
+          className="flex items-center p-2 cursor-pointer"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

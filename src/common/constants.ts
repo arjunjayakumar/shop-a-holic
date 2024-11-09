@@ -17,3 +17,9 @@ export const HTTP_HEADERS = {
   "Content-Type": CONTENT_TYPE.APPLICATION_JSON,
   Accept: CONTENT_TYPE.APPLICATION_JSON,
 };
+
+export const API_STATUS = {
+  SUCCESS: "SUCCESS",
+  PENDING: "PENDING",
+  FAILED: "FAILED",
+};

@@ -1,5 +1,5 @@
 export async function http(path: string, config = {}) {
-  const apiURL = `${import.meta.env.BASE_URL}/${path}}`,
+  const apiURL = `${import.meta.env.VITE_BASE_URL}/${path}`,
     requestConfig = {
       ...config,
       headers: {

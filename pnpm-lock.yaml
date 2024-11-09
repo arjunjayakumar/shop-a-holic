@@ -27,6 +27,9 @@ importers:
       '@eslint/js':
         specifier: ^9.13.0
         version: 9.14.0
+      '@tailwindcss/aspect-ratio':
+        specifier: ^0.4.2
+        version: 0.4.2(tailwindcss@3.4.14)
       '@types/react':
         specifier: ^18.3.12
         version: 18.3.12
@@ -490,6 +493,11 @@ packages:
     resolution: {integrity: sha512-LTw1Dfd0mBIEqUVCxbvTE/LLo+9ZxVC9k99v1v4ahg9Aak6FpqOfNu5kRkeTAn0wphoC4JU7No1/rL+bBCEwhg==}
     cpu: [x64]
     os: [win32]
+
+  '@tailwindcss/aspect-ratio@0.4.2':
+    resolution: {integrity: sha512-8QPrypskfBa7QIMuKHg2TA7BqES6vhBrDLOv8Unb6FcFyd3TjKbc6lcmb9UPQHxfl24sXoJ41ux/H7qQQvfaSQ==}
+    peerDependencies:
+      tailwindcss: '>=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1'
 
   '@types/babel__core@7.20.5':
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
@@ -1757,6 +1765,10 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.24.4':
     optional: true
+
+  '@tailwindcss/aspect-ratio@0.4.2(tailwindcss@3.4.14)':
+    dependencies:
+      tailwindcss: 3.4.14
 
   '@types/babel__core@7.20.5':
     dependencies:
