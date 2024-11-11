@@ -13,15 +13,15 @@ export default function LandingPage() {
   return (
     <div className="bg-white h-[calc(100svh-4.5rem)]">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <h1 className="text-pretty text-center text-5xl font-bold tracking-tight text-gray-900 mb-4">
+        <h1 className="text-pretty text-center text-5xl font-bold tracking-tight text-gray-900 mb-10">
           Welcome to Shop-A-holic
         </h1>
         {getProductsLoading ? (
           <Spinner />
         ) : (
           <Fragment>
-            <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-              Wide variety of products...
+            <h2 className="text-2xl font-bold tracking-tight text-gray-500 mb-4">
+              We sell a wide variety of products...
             </h2>
 
             <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">

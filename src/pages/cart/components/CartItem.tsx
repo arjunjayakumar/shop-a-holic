@@ -108,6 +108,9 @@ export default function CartItem({ item }: { item: SavedProduct }) {
             <p className="text-base font-bold text-gray-900 dark:text-white">
               ${roundOffNumber(item.price * item.quantity)}
             </p>
+            <p className="text-sm font-medium text-gray-900 dark:text-gray-300">
+              {item.discountPercentage}% off
+            </p>
           </div>
         </div>
 
@@ -119,7 +122,7 @@ export default function CartItem({ item }: { item: SavedProduct }) {
             {item.name}
           </a>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 justify-between">
             <button
               type="button"
               className="inline-flex items-center text-sm font-medium text-red-600 hover:underline dark:text-red-500"

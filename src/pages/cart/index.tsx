@@ -4,7 +4,10 @@ import { RootState } from "../../app/store";
 import { SavedProduct } from "../../common/types";
 import { useNavigate } from "react-router-dom";
 import { useMemo } from "react";
-import { roundOffNumber } from "../../utils/calculation";
+import {
+  calculateOriginalPrice,
+  roundOffNumber,
+} from "../../utils/calculation";
 import Order from "./components/Order";
 
 export default function Cart() {
@@ -19,16 +22,6 @@ export default function Cart() {
       )
     );
   }, [cartItems]);
-
-  const calculateOriginalPrice = (
-    price: number,
-    quantity: number,
-    discountPercentage: number
-  ): number => {
-    const totalDiscountedPrice = price * quantity;
-    const originalPrice = totalDiscountedPrice / (1 - discountPercentage / 100);
-    return roundOffNumber(originalPrice);
-  };
 
   const originalPrice = useMemo(() => {
     return roundOffNumber(
@@ -67,100 +60,102 @@ export default function Cart() {
                   onClick={() => navigate("/")}
                   className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                 >
-                  Continue Shopping
+                  Get back to shopping
                 </button>
               </div>
             )}
           </div>
 
-          <div className="mx-auto mt-6 max-w-4xl flex-1 space-y-6 lg:mt-0 lg:w-full">
-            <div className="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6">
-              <p className="text-xl font-semibold text-gray-900 dark:text-white">
-                Order summary
-              </p>
+          {cartItems.length > 0 && (
+            <div className="mx-auto mt-6 max-w-4xl flex-1 space-y-6 lg:mt-0 lg:w-full">
+              <div className="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6">
+                <p className="text-xl font-semibold text-gray-900 dark:text-white">
+                  Order summary
+                </p>
 
-              <div className="space-y-4">
-                <div className="space-y-2">
-                  <dl className="flex items-center justify-between gap-4">
-                    <dt className="text-base font-normal text-gray-500 dark:text-gray-400">
-                      Original price
-                    </dt>
-                    <dd className="text-base font-medium text-gray-900 dark:text-white">
-                      ${originalPrice}
-                    </dd>
-                  </dl>
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <dl className="flex items-center justify-between gap-4">
+                      <dt className="text-base font-normal text-gray-500 dark:text-gray-400">
+                        Original price
+                      </dt>
+                      <dd className="text-base font-medium text-gray-900 dark:text-white">
+                        ${originalPrice}
+                      </dd>
+                    </dl>
 
-                  <dl className="flex items-center justify-between gap-4">
-                    <dt className="text-base font-normal text-gray-500 dark:text-gray-400">
-                      Savings
-                    </dt>
-                    <dd className="text-base font-medium text-green-600">
-                      -${roundOffNumber(originalPrice - totalPrice)}
-                    </dd>
-                  </dl>
+                    <dl className="flex items-center justify-between gap-4">
+                      <dt className="text-base font-normal text-gray-500 dark:text-gray-400">
+                        Savings
+                      </dt>
+                      <dd className="text-base font-medium text-green-600">
+                        -${roundOffNumber(originalPrice - totalPrice)}
+                      </dd>
+                    </dl>
 
-                  <dl className="flex items-center justify-between gap-4">
-                    <dt className="text-base font-normal text-gray-500 dark:text-gray-400">
-                      Store Pickup
-                    </dt>
-                    <dd className="text-base font-medium text-gray-900 dark:text-white">
-                      $0
-                    </dd>
-                  </dl>
+                    <dl className="flex items-center justify-between gap-4">
+                      <dt className="text-base font-normal text-gray-500 dark:text-gray-400">
+                        Store Pickup
+                      </dt>
+                      <dd className="text-base font-medium text-gray-900 dark:text-white">
+                        $0
+                      </dd>
+                    </dl>
 
-                  <dl className="flex items-center justify-between gap-4">
-                    <dt className="text-base font-normal text-gray-500 dark:text-gray-400">
-                      Tax
+                    <dl className="flex items-center justify-between gap-4">
+                      <dt className="text-base font-normal text-gray-500 dark:text-gray-400">
+                        Tax
+                      </dt>
+                      <dd className="text-base font-medium text-gray-900 dark:text-white">
+                        $0
+                      </dd>
+                    </dl>
+                  </div>
+
+                  <dl className="flex items-center justify-between gap-4 pt-2">
+                    <dt className="text-base font-bold text-gray-900 dark:text-white">
+                      Total
                     </dt>
-                    <dd className="text-base font-medium text-gray-900 dark:text-white">
-                      $0
+                    <dd className="text-base font-bold text-gray-900 dark:text-white">
+                      ${totalPrice}
                     </dd>
                   </dl>
                 </div>
 
-                <dl className="flex items-center justify-between gap-4 border-t border-gray-200 pt-2 dark:border-gray-700">
-                  <dt className="text-base font-bold text-gray-900 dark:text-white">
-                    Total
-                  </dt>
-                  <dd className="text-base font-bold text-gray-900 dark:text-white">
-                    ${Math.round(totalPrice)}
-                  </dd>
-                </dl>
-              </div>
+                <div className="border-t border-gray-200 pt-6 dark:border-gray-700">
+                  <Order />
+                </div>
 
-              <div className="my-6">
-                <Order />
-              </div>
-
-              <div className="flex items-center justify-center gap-2">
-                <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                  or
-                </span>
-                <a
-                  onClick={() => navigate("/")}
-                  title="Back"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-primary-700 underline hover:no-underline dark:text-blue-400 dark:hover:text-blue-600"
-                >
-                  Continue Shopping
-                  <svg
-                    className="h-5 w-5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
+                <div className="flex items-center justify-center gap-2">
+                  <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
+                    or
+                  </span>
+                  <a
+                    onClick={() => navigate("/")}
+                    title="Back"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-primary-700 underline hover:no-underline dark:text-blue-400 dark:hover:text-blue-600 cursor-pointer"
                   >
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M19 12H5m14 0-4 4m4-4-4-4"
-                    />
-                  </svg>
-                </a>
+                    Continue Shopping
+                    <svg
+                      className="h-5 w-5"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M19 12H5m14 0-4 4m4-4-4-4"
+                      />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </section>

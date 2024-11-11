@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { IProduct } from "../../../common/types";
 import Image from "../../../common/components/Image/Image";
+import StarRating from "../../detail/components/StarRating";
 
 export default function ProductItem({ product }: { product: IProduct }) {
   const navigate = useNavigate();
@@ -26,9 +27,14 @@ export default function ProductItem({ product }: { product: IProduct }) {
               {product.title}
             </a>
           </h3>
-          <p className="mt-1 text-sm text-gray-500">{product.rating} stars</p>
+          <StarRating rating={product.rating} />
         </div>
-        <p className="text-sm font-medium text-gray-900">${product.price}</p>
+        <div className="flex flex-col items-end">
+          <p className="text-sm font-medium text-gray-900">${product.price}</p>
+          <p className="text-sm font-medium text-red-400">
+            {product.discountPercentage}% off
+          </p>
+        </div>
       </div>
     </div>
   );
