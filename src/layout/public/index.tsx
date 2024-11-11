@@ -13,7 +13,7 @@ export default function Public() {
   }, [dispatch]);
 
   return (
-    <section className="h-screen">
+    <section className="h-screen overflow-hidden">
       <Header />
       <Outlet />
     </section>

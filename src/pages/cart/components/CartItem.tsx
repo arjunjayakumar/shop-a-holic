@@ -2,9 +2,12 @@ import { SavedProduct } from "../../../common/types";
 import { AppDispatch } from "../../../app/store";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { removeCartItem, updateCartItemQuantity } from "../../common/slice";
 import { roundOffNumber } from "../../../utils/calculation";
 import Image from "../../../common/components/Image/Image";
+import {
+  removeCartItem,
+  updateCartItemQuantity,
+} from "../../../common/utils/slice";
 
 export default function CartItem({ item }: { item: SavedProduct }) {
   const dispatch: AppDispatch = useDispatch(),

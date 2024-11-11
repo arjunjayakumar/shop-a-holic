@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { AppDispatch } from "../../../app/store";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { clearCartItems } from "../../common/slice";
+import { clearCartItems } from "../../../common/utils/slice";
 
 export default function Order() {
   const [name, setName] = useState(""),

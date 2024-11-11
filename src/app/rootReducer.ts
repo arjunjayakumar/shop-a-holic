@@ -1,4 +1,4 @@
-import { commonSlice } from "../pages/common/slice";
+import { commonSlice } from "../common/utils/slice";
 import { productSlice } from "../pages/slice";
 
 export const reducers = {

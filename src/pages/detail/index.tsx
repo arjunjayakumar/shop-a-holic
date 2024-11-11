@@ -5,8 +5,8 @@ import { useEffect, useMemo, useState } from "react";
 import { IProduct, SavedProduct } from "../../common/types";
 import StarRating from "./components/StarRating";
 import { toast } from "react-toastify";
-import { addCartItem } from "../common/slice";
 import Image from "../../common/components/Image/Image";
+import { addCartItem } from "../../common/utils/slice";
 
 export default function DetailPage() {
   const { productList } = useSelector((state: RootState) => state.product),
