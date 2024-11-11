@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { removeCartItem, updateCartItemQuantity } from "../../common/slice";
 import { roundOffNumber } from "../../../utils/calculation";
+import Image from "../../../common/components/Image/Image";
 
 export default function CartItem({ item }: { item: SavedProduct }) {
   const dispatch: AppDispatch = useDispatch(),
@@ -19,8 +20,17 @@ export default function CartItem({ item }: { item: SavedProduct }) {
   return (
     <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6 my-2">
       <div className="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
-        <a href="#" className="shrink-0 md:order-1">
-          <img className=" h-20 w-20" src={item.thumbnail} alt="imac image" />
+        <a
+          className="shrink-0 md:order-1"
+          onClick={() => navigate(`/${item.id}/detail`)}
+        >
+          <Image
+            src={item.thumbnail}
+            alt={item.name}
+            className="h-20 w-20"
+            width={80}
+            height={80}
+          />
         </a>
 
         <label className="sr-only">Choose quantity:</label>

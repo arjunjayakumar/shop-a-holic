@@ -1,3 +1,5 @@
+import { REQUEST_METHOD } from "../common/constants";
+
 export async function http(path: string, config = {}) {
   const apiURL = `${import.meta.env.VITE_BASE_URL}/${path}`,
     requestConfig = {
@@ -20,5 +22,5 @@ export async function http(path: string, config = {}) {
 }
 
 http.get = function (path: string, config = {}) {
-  return http(path, { ...config, method: "GET" });
+  return http(path, { ...config, method: REQUEST_METHOD.GET });
 };

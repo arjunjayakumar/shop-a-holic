@@ -15,6 +15,7 @@ export default function Header() {
           onClick={() => navigate("/")}
           aria-label="Back to homepage"
           className="flex items-center p-2 cursor-pointer"
+          title="Back to homepage"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -31,6 +32,7 @@ export default function Header() {
           <button
             className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-600 dark:text-gray-50"
             onClick={() => navigate("/cart")}
+            title="Cart"
           >
             Cart
             {cartItemsCount > 0 && (

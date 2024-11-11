@@ -6,6 +6,7 @@ import { IProduct, SavedProduct } from "../../common/types";
 import StarRating from "./components/StarRating";
 import { toast } from "react-toastify";
 import { addCartItem } from "../common/slice";
+import Image from "../../common/components/Image/Image";
 
 export default function DetailPage() {
   const { productList } = useSelector((state: RootState) => state.product),
@@ -54,10 +55,10 @@ export default function DetailPage() {
     <section className="text-gray-700 body-font overflow-hidden bg-white h-[calc(100svh-4.5rem)]">
       <div className="container px-5 py-24 mx-auto">
         <div className="lg:w-4/5 mx-auto flex flex-wrap">
-          <img
-            alt="ecommerce"
+          <Image
+            src={product?.images[0] || ""}
+            alt={product?.title || ""}
             className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200"
-            src={product?.images[0]}
           />
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
             <h2 className="text-sm title-font text-gray-500 tracking-widest">

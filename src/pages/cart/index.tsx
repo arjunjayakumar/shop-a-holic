@@ -5,6 +5,7 @@ import { SavedProduct } from "../../common/types";
 import { useNavigate } from "react-router-dom";
 import { useMemo } from "react";
 import { roundOffNumber } from "../../utils/calculation";
+import Order from "./components/Order";
 
 export default function Cart() {
   const { cartItems } = useSelector((state: RootState) => state.common),
@@ -127,12 +128,9 @@ export default function Cart() {
                 </dl>
               </div>
 
-              <a
-                href="#"
-                className="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 cursor-pointer"
-              >
-                Order Now
-              </a>
+              <div className="my-6">
+                <Order />
+              </div>
 
               <div className="flex items-center justify-center gap-2">
                 <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
