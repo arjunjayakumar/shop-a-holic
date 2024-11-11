@@ -11,15 +11,7 @@ export default function LandingPage() {
   );
 
   return (
-    <div
-      className="bg-white max-h-[calc(100svh-4.5rem)] overflow-y-auto [&::-webkit-scrollbar]:w-2
-  [&::-webkit-scrollbar-track]:rounded-full
-  [&::-webkit-scrollbar-track]:bg-gray-100
-  [&::-webkit-scrollbar-thumb]:rounded-full
-  [&::-webkit-scrollbar-thumb]:bg-gray-300
-  dark:[&::-webkit-scrollbar-track]:bg-neutral-700
-  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
-    >
+    <div className="bg-white max-h-[calc(100svh-4.5rem)] overflow-y-auto scroll-bar-custom">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <h1 className="text-pretty text-center text-5xl font-bold tracking-tight text-gray-900 mb-10">
           Welcome to Shop-A-holic
