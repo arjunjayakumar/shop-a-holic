@@ -15,7 +15,16 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>
       <Suspense fallback={<Spinner />}>
-        <ToastContainer />
+        <ToastContainer
+          position="top-center"
+          autoClose={3500}
+          hideProgressBar
+          newestOnTop
+          closeOnClick
+          pauseOnFocusLoss={false}
+          pauseOnHover={false}
+          closeButton={false}
+        />
         <RouterProvider router={router} />
       </Suspense>
     </Provider>

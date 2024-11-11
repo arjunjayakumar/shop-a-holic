@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { RootState } from "../../../app/store";
 import { useMemo } from "react";
 import appLogo from "../../../assets/app-logo.svg";
-import Image from "../Image/Image";
 
 export default function Header() {
   const navigate = useNavigate(),
@@ -19,7 +18,7 @@ export default function Header() {
           className="flex items-center p-2 cursor-pointer"
           title="Back to homepage"
         >
-          <Image src={appLogo} alt="logo" width={100} height={100} />
+          <img src={appLogo} alt="logo" width={100} height={100} />
         </a>
 
         <div className="items-center flex-shrink-0 lg:flex">

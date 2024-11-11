@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
 
 export default function Image({
   src,
@@ -15,11 +15,6 @@ export default function Image({
 }) {
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    return () => {
-      setIsLoading(true);
-    };
-  }, []);
   return (
     <Fragment>
       <div

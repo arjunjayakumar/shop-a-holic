@@ -123,8 +123,11 @@ export default function DetailPage() {
                     Reviews
                   </h2>
                   <div className="flex flex-col items-start gap-2">
-                    {product?.reviews.map((review) => (
-                      <ReviewItem key={review.date} review={review} />
+                    {product?.reviews.map((review, index) => (
+                      <ReviewItem
+                        key={`${index}-${review.date}`}
+                        review={review}
+                      />
                     ))}
                   </div>
                 </section>
