@@ -43,3 +43,13 @@ export interface IProduct {
   images: string[];
   thumbnail: string;
 }
+
+export interface SavedProduct {
+  id: number;
+  quantity: number;
+  name: string;
+  price: number;
+  thumbnail: string;
+  discountPercentage: number;
+  stock: number;
+}

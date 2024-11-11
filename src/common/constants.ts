@@ -22,4 +22,5 @@ export const API_STATUS = {
   SUCCESS: "SUCCESS",
   PENDING: "PENDING",
   FAILED: "FAILED",
+  IDLE: "IDLE",
 };

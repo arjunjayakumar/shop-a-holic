@@ -1,7 +1,12 @@
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { RootState } from "../../../app/store";
+import { useMemo } from "react";
 
 export default function Header() {
-  const navigate = useNavigate();
+  const navigate = useNavigate(),
+    { cartItems } = useSelector((state: RootState) => state.common),
+    cartItemsCount = useMemo(() => cartItems.length, [cartItems]);
   return (
     <header className="p-4 dark:bg-gray-100 dark:text-gray-800 sticky top-0 z-10">
       <div className="container flex justify-between h-10 mx-auto">
@@ -28,9 +33,11 @@ export default function Header() {
             onClick={() => navigate("/cart")}
           >
             Cart
-            <span className="inline-flex items-center justify-center w-5 h-5 ms-2 text-sm font-semibold text-white dark:bg-violet-300 rounded-full">
-              2
-            </span>
+            {cartItemsCount > 0 && (
+              <span className="inline-flex items-center justify-center w-5 h-5 ms-2 text-sm font-semibold text-white dark:bg-violet-300 rounded-full">
+                {cartItemsCount}
+              </span>
+            )}
           </button>
         </div>
       </div>

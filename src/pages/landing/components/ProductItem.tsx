@@ -1,8 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import { IProduct } from "../../../common/types";
 
 export default function ProductItem({ product }: { product: IProduct }) {
+  const navigate = useNavigate();
+
   return (
-    <div key={product.id} className="group relative cursor-pointer">
+    <div
+      key={product.id}
+      className="group relative cursor-pointer"
+      onClick={() => navigate(`/${product.id}/detail`)}
+    >
       <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
         <img
           alt={product.title}
