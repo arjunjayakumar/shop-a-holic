@@ -23,10 +23,10 @@ export default function Cart() {
     price: number,
     quantity: number,
     discountPercentage: number
-  ) => {
+  ): number => {
     const totalDiscountedPrice = price * quantity;
     const originalPrice = totalDiscountedPrice / (1 - discountPercentage / 100);
-    return originalPrice;
+    return roundOffNumber(originalPrice);
   };
 
   const originalPrice = useMemo(() => {
